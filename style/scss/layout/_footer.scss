@@ -1,0 +1,47 @@
+@import "./variables/variables";
+@import "./mixins/mixins";
+
+
+// ***************************** //
+		// FOOTER SCSS
+// ***************************** //
+
+// ===================================
+	// dashboard footer
+// ===================================
+
+
+footer{
+
+	& .footer{
+		bottom: 0;
+		position: fixed;
+		right: 0;
+		left: 0;
+		text-align: center;
+		background: #39576B;
+		color: #fff8dc;
+		padding: 5px 15px;
+		// top: calc(100vh - 35px); //if position absolute
+
+		& .row{
+
+			& .credit{
+
+				& + .tooltip{
+
+					& > .tooltip-inner{
+						background: #098bb4;
+						font-family: Kozuka Mincho pr6N H, khmer UI,sword kanji,sans-serif;
+						font-weight: bold;
+					}
+
+					& > .tooltip-arrow{
+						border-top-color: #098bb4;
+					}
+				}
+			}
+
+		}
+	}
+}

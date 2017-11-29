@@ -1,0 +1,153 @@
+@import "layout/header";
+@import "layout/contents";
+@import "layout/footer";
+@import "variables/variables";
+@import "mixins/mixins";
+
+
+// ========== mixins usage ==================== //
+
+// 	@include bg-color(black);
+// 	@include bg-img('glass.png');
+// 	@include bg(rgba(0,0,0,0.5),'glass.jpg',no-repeat,fixed,center center,cover);
+// 	@include bg-linear-gradient(#ccc,90deg,#fff 20%,#000 30%,#ff0000 100%);
+// 	background:$primary_color;
+// 	color:$secondary_color;
+// 	@include scale(1.3);
+// 	@include rotate(45);
+// 	@include transform-origin(50% 50% 100px);
+// 	@include rotate3d(100px,0,1,0,45);
+// 	@include transition(width 1s ease-in 0s,height 2s ease-out 0s);
+// 	@include filter(drop-shadow(0 1px 0 #000));
+// 	@include box-shadow(0 0 1px #fff);
+// 	@include border-radius(none);
+// 	@include animation(anime 1s ease-in-out forwards);
+
+// 	&:before{@include pseudo();}
+
+
+// @include keyframes(anime){
+// 	from{@include rotate(45);}
+// 	to{@include rotate(0);}
+// }
+
+// ===========================================================//
+html{
+}
+
+body{
+	background: #efefef;
+	max-width: 100%;
+	max-height: 100%;
+	position: relative;
+	overflow-x:hidden;
+	overflow-y: auto;
+	height: 100vh;
+
+	font: {
+		family:'Capriola',sans-serif,'Lato',serif;
+		size: 14px;
+	}
+
+
+	& p {
+		font: {
+			family:'Helvetica',sans-serif;
+		}
+	}
+
+	& a {
+		color: $lightgray;
+
+		&:hover {
+			color: $darkgray;
+		}
+	}
+
+}
+
+
+::-moz-selection { /* Code for Firefox */
+    color: #ffffff;
+    background: $secondary_color;
+}
+
+::selection {
+    color: #ffffff;
+    background: $secondary_color;
+}
+
+
+.no-padd{
+	padding-top: 0;
+	padding-right: 0;
+	padding-left: 0;
+	padding-bottom: 0;
+}
+
+.no-marg{
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+.no-border-rad{
+	@include border-radius(0!important);
+}
+
+.no-border{
+	@include border(none!important);
+}
+
+// ******************************
+
+
+.fullW{width: 100%;margin-left: 0;}
+
+
+//=======================================
+// custom animation 
+
+.menu-rotate{
+@include animation(menu-rotate,1s cubic-bezier(0.5, -0.5, 0, 1) forwards 0s);
+	@include keyframes (menu-rotate){
+		0%{ @include rotate(0); }
+		50%{ @include rotate(360); }
+		100%{ @include rotate(0); }
+	}
+
+}
+
+// -------------------------------------------
+
+.content-transition{
+	@include translate(100vw,0);
+	@include transition(transform 1s cubic-bezier(0.5,-0.5,0,1) );
+}
+
+// --------------------------------------------
+.return-view{
+@include animation(return-view,1s ease-out forwards 1s);
+}
+@include keyframes (return-view) {
+	0%{@include translate(0,100vh); @include opacity(0);}
+	20%{@include translate(0,90vh); @include opacity(0.3);}
+	50%{@include translate(0,70vh); @include opacity(0.5);}
+	70%{@include translate(0,40vh); @include opacity(0.7);}
+	100%{@include translate(0,0vh); @include opacity(1);}		
+}
+
+// --------------------------------------------
+.shelfed{
+	@include animation(shelfed,0.5s ease-out forwards);
+}
+
+@include keyframes (shelfed) {
+	0%{ @include generic-transform( perspective(500px) rotate3d(-1,0,0,90deg) translate(0,100vh) ); }
+	100%{@include generic-transform( perspective(500px) rotate3d(0,0,0,0deg) translate(0,0vh) );}
+}
+
+// ----------------------------
+
+
