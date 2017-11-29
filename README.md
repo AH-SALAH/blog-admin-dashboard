@@ -1,7 +1,9 @@
 ## blog-admin-dashboard
 > a Mini php blog admin-dashboard
 
-- see it [here](http://blogish.iblogger.org)
+- see it [here](http://blogish.iblogger.org) 
+- login as admin => user: ahmed salah | pass: 123456 
+- or you can register a new.
 
 <strong>- Nice Tech Used:</strong>
 
